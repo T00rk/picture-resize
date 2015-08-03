@@ -12,6 +12,8 @@ Twitter-like picture resizer.
 
 jquery [http://jquery.com/download/](http://jquery.com/download/)
 
+underscore [http://underscorejs.org/](http://underscorejs.org/)
+
 JavaScript-Canvas-to-Blob [https://github.com/blueimp/JavaScript-Canvas-to-Blob](https://github.com/blueimp/JavaScript-Canvas-to-Blob)
 
 
