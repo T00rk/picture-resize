@@ -58,7 +58,7 @@
         },
         initTemplate : function()
         {
-            var template = '<div class="ddr-handler valign-wrapper" style="overflow:hidden;text-align:center"><p class="valign">Déposez votre photo ici.<br />Taille minimum : ' + this.params.width + 'x' + this.params.height + '<br />Poids maximum : ' + this.params.size + 'Mo</p></div>';
+            var template = '<div class="ddr-handler valign-wrapper" style="overflow:hidden;text-align:center"><p class="valign">Drop your picture here<br />Minimum dimensions : ' + this.params.width + 'x' + this.params.height + '<br />Maximum size : ' + this.params.size + 'MB</p></div>';
             var content = _.template(template);
 
             this.$element.html(content);
@@ -138,7 +138,6 @@
         },
         typeMatch: function(file)
         {
-            console.log(file.type)
             return (file.type == "image/png" || file.type == "image/jpeg" || file.type == "image/jpg" || file.type == "image/gif");
         },
         sizeMatch: function(file)
@@ -209,7 +208,7 @@
             if(this.scale.min < 1)
             {
                 var w = this.$element.find('.ddr-handler').width();
-                var st = $('<div style="position:absolute;bottom:10px;" class="ddr-slider-container" style="cursor:default"><input type="range" min="' + ((this.scale.min * 100)) + '" max="100" value="100" />').width(w);
+                var st = $('<div style="width: 100%;" class="ddr-slider-container" style="cursor:default"><input style="width:100%" type=""range" min="' + ((this.scale.min * 100)) + '" max="100" value="100" />').width(w);
                     this.attachEvent(st.find('input[type="range"]'), 'change', this.onSlide.bind(this));
 
                 this.$element.find('.ddr-handler').after(st);
@@ -219,9 +218,9 @@
         {
             switch(x)
             {
-                case 0: this.$element.find('.ddr-handler').html('<p class="valign">LE FICHIER N\'EST PAS UNE IMAGE<br />Taille minimum : ' + this.params.width + 'x' + this.params.height + '</p>'); break;
-                case 1: this.$element.find('.ddr-handler').html('<p class="valign">VOTRE IMAGE EST TROP PETITE<br />Taille minimum : ' + this.params.width + 'x' + this.params.height + '</p>'); break;
-                case 2: this.$element.find('.ddr-handler').html('<p class="valign">VOTRE IMAGE EST TROP LOURDE<br />Poids maximum : ' + this.params.size + 'Mo</p>'); break;
+                case 0: this.$element.find('.ddr-handler').html('<p class="valign">FILE IS NOT A PICTURE<br />Maximum dimensions : ' + this.params.width + 'x' + this.params.height + '</p>'); break;
+                case 1: this.$element.find('.ddr-handler').html('<p class="valign">YOUR PICTURE IS TOO SMALL<br />Minimum dimensions : ' + this.params.width + 'x' + this.params.height + '</p>'); break;
+                case 2: this.$element.find('.ddr-handler').html('<p class="valign">YOUR PICTURE IS TOO HEAVY<br />Maximum size : ' + this.params.size + 'Mo</p>'); break;
             }            
         },
         createCanvas : function()
@@ -240,9 +239,12 @@
         },
         createWindow : function()
         {
+			var top = this.$element.find('.ddr-handler').offset().top;
+			var left = this.$element.find('.ddr-handler').offset().left;
+			
             this.windowCanvas = document.createElement('canvas');
             this.windowCanvas.setAttribute('id', 'windowCanvas');
-            this.windowCanvas.setAttribute('style', 'position: absolute; left: 24px; top: 24px; width: ' + this.MAX_WIDTH + 'px;height: ' + this.MAX_HEIGHT + 'px;cursor:move;');
+            this.windowCanvas.setAttribute('style', 'position: absolute; left: ' + top + 'px; top: ' + left + 'px; width: ' + this.MAX_WIDTH + 'px;height: ' + this.MAX_HEIGHT + 'px;cursor:move;');
             this.windowCanvas.width = this.MAX_WIDTH;
             this.windowCanvas.height = this.MAX_HEIGHT;
 
