@@ -244,7 +244,7 @@
 			
             this.windowCanvas = document.createElement('canvas');
             this.windowCanvas.setAttribute('id', 'windowCanvas');
-            this.windowCanvas.setAttribute('style', 'position: absolute; left: ' + top + 'px; top: ' + left + 'px; width: ' + this.MAX_WIDTH + 'px;height: ' + this.MAX_HEIGHT + 'px;cursor:move;');
+            this.windowCanvas.setAttribute('style', 'position: absolute; left: ' + left + 'px; top: ' + top + 'px; width: ' + this.MAX_WIDTH + 'px;height: ' + this.MAX_HEIGHT + 'px;cursor:move;');
             this.windowCanvas.width = this.MAX_WIDTH;
             this.windowCanvas.height = this.MAX_HEIGHT;
 
