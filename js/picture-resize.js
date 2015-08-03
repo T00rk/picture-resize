@@ -1,6 +1,6 @@
 (function($, _)
 {
-    var pluginName = "picture-resize";
+    var pluginName = "pictureResize";
     var pluginDataName = "plugin_" + pluginName;    
 
     function Plugin(element, options)

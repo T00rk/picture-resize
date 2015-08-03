@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+	<head>
+		<title>picture-resize</title>
+		<link href="css/picture-resize.css" type="text/css" rel="stylesheet" />
+		<script src="https://raw.githubusercontent.com/blueimp/JavaScript-Canvas-to-Blob/master/js/canvas-to-blob.min.js" type="text/javascript"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" type="text/javascript"></script>
+		<script src="js/picture-resize.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div class="pr"></div>
+		<script type="text/javascript">
+			$(document).ready(function()
+			{
+				$('div.pr').pictureResize({ width : 250, height : 250, size : 3 });
+			});
+		</script>
+	</body>
+</html>
