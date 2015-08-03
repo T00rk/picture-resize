@@ -208,10 +208,10 @@
             if(this.scale.min < 1)
             {
                 var w = this.$element.find('.ddr-handler').width();
-                var st = $('<div style="width: 100%;" class="ddr-slider-container" style="cursor:default"><input style="width:100%" type="range" min="' + ((this.scale.min * 100)) + '" max="100" value="100" />').width(w);
+                var st = $('<div class="ddr-slider-container" style="cursor:default;width: 100%;"><input style="width:100%" type="range" min="' + ((this.scale.min * 100)) + '" max="100" value="100" />').width(w);
                     this.attachEvent(st.find('input[type="range"]'), 'change', this.onSlide.bind(this));
 
-                this.$element.find('.ddr-handler').after(st);
+                this.$element.append(st);
             }
         },
         displayError: function(x)
